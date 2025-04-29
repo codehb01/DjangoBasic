@@ -11,5 +11,8 @@ Login - Tweet App
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
-<a href="{% url 'tweetList' %}" class="btn btn-secondary">Back</a>
+<a href="{% url 'tweetList' %}" class="btn btn-secondary">Back</a> 
+{% comment %} 
+<h2>Logged out</h2>
+<p>You have been logged out <a href="{% url 'register' %}">Please log in again.</p> {% endcomment %}
 {% endblock %}
