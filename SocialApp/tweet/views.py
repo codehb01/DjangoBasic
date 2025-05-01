@@ -10,6 +10,7 @@ from django.contrib.auth import login
 def index(request):
     return render(request,'index.html')
 
+        
 def tweetList(request):
     tweets = Tweet.objects.all().order_by('-created_at')
     return render(request ,'tweet_list.html',{'tweets':tweets})
@@ -52,6 +53,7 @@ def tweetDelete(request,tweet_id):
         tweet.delete()
         return redirect("tweetList")
      return render(request,'tweet_confirm_delete.html',{'tweet': tweet})
+
     
 def Register(request):
     if request.method=='POST':
@@ -65,3 +67,21 @@ def Register(request):
     else:
         form = userRegistrationForm()
     return render(request,'registration/register.html',{'form':form})
+
+#view to search tweet on the basis of keyword
+
+def Search(request):
+    tweets=[]
+    query= None
+    if request.method=="POST":
+           query = request.POST.get('keyword','').strip()
+           if query:
+            tweets = Tweet.objects.filter(text__icontains=query).order_by('-created_at')
+    return render(request,'search.html',{'tweets':tweets,'query':query})
+
+@login_required
+def Profile(request):
+    return render(request, 'profile.html', {'username': request.user.username,'email':request.user.email})
+
+def AboutUs(request):
+    return render(request,'about_us.html')

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Tweet App
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center mt-5">
+  <div class="card shadow-lg border-primary " style="width: 24rem; background-color:rgb(77, 78, 79); height:12.5rem">
+    <div class="card-body text-center">
+      <h2 class="card-title text-primary">{{ username }}'s Profile</h2>
+      <hr>
+      <p class="card-text"><strong>Username:</strong> {{ username }}</p>
+      <p class="card-text"><strong>Email:</strong> {{ email }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

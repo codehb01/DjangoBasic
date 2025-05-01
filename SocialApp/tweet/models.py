@@ -12,3 +12,4 @@ class Tweet(models.Model):
     def __str__(self):
         # the link which we would get from this class and we can nav their is modified here
         return f'{self.user.username} - {self.text[:10]}'
+    

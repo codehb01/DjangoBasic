@@ -25,6 +25,9 @@ urlpatterns = [
     path('<int:tweet_id>/edit/',views.tweetEdit, name='tweetEdit'),
     path('<int:tweet_id>/delete/',views.tweetDelete, name='tweetDelete'),
     path('register/',views.Register, name='Register'),
+    path('search/',views.Search,name='Search'),
+    path('profile/',views.Profile,name='Profile'),
+    path('aboutus/',views.AboutUs,name='AboutUs')
     # path('',views.tweetList, name='tweetList'),
 ]
 

@@ -51,17 +51,19 @@
                 Settings
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="{% url 'Profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'AboutUs'%}">About Us</a></li>
               </ul>
             </li>
           </ul>
 
-          <form class="d-flex me-3" role="search">
+          <form class="d-flex me-3" role="search" method="POST" action="{%url 'Search' %}">
+            {% csrf_token %}  
             <input
               class="form-control me-2"
               type="search"
-              placeholder="Search"
+              name="keyword"
+              placeholder="Search tweet"
               aria-label="Search"
             />
             <button class="btn btn-outline-success" type="submit">
